@@ -1,0 +1,37 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+interface SolarSystemEntity {
++getId(): int
++getName(): String
+}
+
+abstract class CelestialBody {
+-id: int
+-name: String
+}
+
+class Satellite {
+-planetName: String
+}
+
+class Planet {
+-radius: long
+-atmosphere: String
+}
+
+class SolarSystem {
+-numberOfEntities: long
+-name: String
++findEntityById(id: int): SolarSystemEntity
++findEntityByName(name: String): SolarSystemEntity
++addEntity(entity: SolarSystemEntity) : boolean
++deleteEntity(id: int): boolean
+}
+class SolarSystemClient
+SolarSystemEntity "0..*" <--> "1" SolarSystem
+SolarSystemEntity <|.. CelestialBody
+CelestialBody <|-- Planet
+CelestialBody <|-- Satellite
+SolarSystemClient ..> SolarSystem
+@enduml

@@ -1,0 +1,12 @@
+@startuml
+SolarSystemClient -> SolarSystem: deleteEntity(id: int)
+loop all entities in list
+    SolarSystem -> SolarSystemEntityList : getEntity
+    SolarSystemEntityList -> SolarSystem: anEntity
+    alt anEntity.id == id
+    SolarSystem -> SolarSystemClient : deleteFromList(entity: SolarSystemEntity)
+    SolarSystem -> SolarSystemClient: true
+    end
+end
+ SolarSystem -> SolarSystemClient: false
+@enduml

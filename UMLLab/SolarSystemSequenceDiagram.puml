@@ -1,0 +1,11 @@
+@startuml
+SolarSystemClient -> SolarSystem: findEntityByName(name:String)
+loop all entities in list
+    SolarSystem -> SolarSystemEntityList : getEntity
+    SolarSystemEntityList -> SolarSystem: anEntity
+    alt anEntity.name == name
+    SolarSystem -> SolarSystemClient : anEntity
+    end
+end
+ResultEntityList -> SolarSystemClient : resultList
+@enduml

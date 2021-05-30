@@ -1,0 +1,21 @@
+@startuml
+interface PrintType{
++print(idDoc: int): void
+}
+class Printer {
+id: int
+printType: String
++print(idDoc: int): void
+
+}
+class Matrix implements PrintType {
++print(idDoc: int): void
+}
+class Inkjet implements PrintType {
++print(idDoc: int): void
+}
+class Laser implements PrintType {
++print(idDoc: int): void
+}
+Printer *-- PrintType
+@enduml
