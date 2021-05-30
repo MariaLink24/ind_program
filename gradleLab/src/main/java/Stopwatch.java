@@ -44,7 +44,6 @@ public class Stopwatch{
         Stopwatch stopwatch = new Stopwatch();
         // Starting stopwatch before the method call
         stopwatch.start();
-
         // Stopping stopwatch after the method call
         stopwatch.stop();
         System.out.println("Stopwatch stopped");
