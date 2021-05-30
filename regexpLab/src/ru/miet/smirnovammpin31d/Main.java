@@ -15,7 +15,7 @@ public class Main {
                 oldtext += line + "\r\n";
             }
             reader.close();
-            String newtext = oldtext.replaceAll("drink", "[censored]");
+            String newtext = oldtext.replaceAll("\\b([A-Z]\\w*?)\\b | [0-9].*", "[censored]");
             FileWriter writer = new FileWriter("file.txt");
             writer.write(newtext);writer.close();
         }
