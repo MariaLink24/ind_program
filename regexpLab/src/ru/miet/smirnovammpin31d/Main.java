@@ -9,13 +9,15 @@ public class Main {
         {
             Path file = Paths.get("src/ru/miet/smirnovammpin31d/test.txt");
             BufferedReader reader = new BufferedReader(new FileReader(String.valueOf(file)));
-            String line = "", oldtext = "";
+            String line = "";
+            StringBuffer oldtext = new StringBuffer();
             while((line = reader.readLine()) != null)
             {
-                oldtext += line + "\r\n";
+                oldtext.append(line + "\r\n");
             }
+            String s = oldtext.toString();
             reader.close();
-            String newtext = oldtext.replaceAll("\\b([A-Z]\\w*?)\\b | [0-9].*", "[censored]");
+            String newtext = s.replaceAll("\\b([A-Z]\\w*?)\\b | [0-9].*", "[censored]");
             FileWriter writer = new FileWriter("file.txt");
             writer.write(newtext);writer.close();
         }
